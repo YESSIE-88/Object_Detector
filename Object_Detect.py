@@ -1,8 +1,6 @@
 import cv2
 from picamera2 import Picamera2
 
-#thres = 0.45 # Threshold to detect object
-
 classNames = []
 classFile = "/home/jessie/Desktop/Object_Detection_Files/coco.names"
 with open(classFile,"rt") as f:
@@ -20,7 +18,6 @@ net.setInputSwapRB(True)
 
 def getObjects(img, thres, nms, draw=True, objects=[]):
     classIds, confs, bbox = net.detect(img,confThreshold=thres,nmsThreshold=nms)
-    #print(classIds,bbox)
     if len(objects) == 0: objects = classNames
     objectInfo =[]
     if len(classIds) != 0:
@@ -50,8 +47,8 @@ if __name__ == "__main__":
 
     while True:
         frame = piCam.capture_array()
-        result, objectInfo = getObjects(frame,0.5 ,0.2, objects = ['cup', 'banana'])
-        #result, objectInfo = getObjects(frame,0.5 ,0.2)
+        #result, objectInfo = getObjects(frame,0.5 ,0.2, objects = ['cup', 'banana']) #Only identify cup and banana objects 
+        result, objectInfo = getObjects(frame, 0.5 , 0.2)
         #print(objectInfo)
         cv2.imshow("Output",frame)
         if cv2.waitKey(1) == ord('q'):
