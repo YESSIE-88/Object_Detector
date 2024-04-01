@@ -8,4 +8,4 @@ I had to modify this code to work with the Picamera2 module since the cv2 camera
 
 Files and Install instructions can be found in the article linked above, some of the commands have been updated and will no longer work, especially if you are running on different hardware.
 
-Short video demo of the code: [https://youtu.be/Wn-Ncj6mCJQ?si=7QJCth2MBCXoUF92](url)
+Short video demo of the code: [https://youtu.be/Wn-Ncj6mCJQ?si=QKwTKB5m3K6d40jI](url)
